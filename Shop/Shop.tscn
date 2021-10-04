@@ -1,0 +1,16 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Shop/shop.png" type="Texture" id=1]
+[ext_resource path="res://Shop/JumpBoost.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Shop/Discount.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Shop/HealthRefill.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Shop/SpikeWheel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Shop/ComboUp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Shop/SpeedBoost.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Shop/Feather.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Shop/Shop.cs" type="Script" id=9]
+
+[node name="Shop" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 9 )
+items = [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 7 ), ExtResource( 5 ) ]

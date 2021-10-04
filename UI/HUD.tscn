@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://UI/points.png" type="Texture" id=2]
+[ext_resource path="res://UI/clock.png" type="Texture" id=3]
+[ext_resource path="res://UI/combo.png" type="Texture" id=4]
+[ext_resource path="res://UI/slider.png" type="Texture" id=5]
+[ext_resource path="res://UI/HUD.cs" type="Script" id=6]
+
+[node name="HUD" type="CanvasLayer"]
+scale = Vector2( 2, 2 )
+transform = Transform2D( 2, 0, 0, 2, 0, 0 )
+script = ExtResource( 6 )
+
+[node name="Points" type="TextureRect" parent="."]
+anchor_left = 0.031
+anchor_top = 0.042
+anchor_right = 0.031
+anchor_bottom = 0.042
+margin_left = 0.127999
+margin_top = -0.0960007
+margin_right = 48.128
+margin_bottom = 7.904
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Points"]
+anchor_top = -0.375
+anchor_bottom = -0.375
+margin_left = 47.0
+margin_top = 2.38419e-07
+margin_right = 87.0
+margin_bottom = 15.0
+custom_colors/font_color = Color( 0.882353, 0.647059, 0.0588235, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Combo" type="TextureRect" parent="."]
+anchor_left = 0.359
+anchor_top = 0.042
+anchor_right = 0.359
+anchor_bottom = 0.042
+margin_left = 0.191986
+margin_top = -0.0960007
+margin_right = 43.192
+margin_bottom = 8.904
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Combo"]
+margin_left = 47.0
+margin_top = -3.0
+margin_right = 87.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 0.882353, 0.647059, 0.0588235, 1 )
+custom_fonts/font = ExtResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="Combo"]
+margin_top = 9.0
+margin_right = 192.0
+margin_bottom = 19.0
+rect_scale = Vector2( 0.33, 0.188 )
+value = 100.0
+texture_progress = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="TextureRect" parent="."]
+margin_left = 224.0
+margin_top = 120.0
+margin_right = 240.0
+margin_bottom = 136.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="Time"]
+margin_left = -192.0
+margin_top = 5.0
+margin_bottom = 15.0
+rect_scale = Vector2( 1, 0.6 )
+step = 0.01
+value = 100.0
+texture_progress = ExtResource( 5 )
+
+[node name="Hearts" type="Node2D" parent="."]
+position = Vector2( 16, 22.5 )

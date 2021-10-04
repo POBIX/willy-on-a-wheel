@@ -1,0 +1,281 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://Player/Wheel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Shop/Shop.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Level/background.png" type="Texture" id=4]
+[ext_resource path="res://Enemies/ZombieSpawner.cs" type="Script" id=5]
+[ext_resource path="res://Level/sky.png" type="Texture" id=6]
+[ext_resource path="res://Level/Light.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Level/PopupLayer.cs" type="Script" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "icon.png 0"
+0/texture = ExtResource( 1 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[node name="Arena" type="Node2D"]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.537255, 0.537255, 0.537255, 1 )
+
+[node name="Level" type="Sprite" parent="."]
+position = Vector2( 0, 48 )
+z_index = 1
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 4096, 144 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+
+[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 0, 186 )
+z_index = 2
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 1984, 144 )
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="Light" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -247, 26 )
+z_index = 1
+
+[node name="Light9" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -407, 26 )
+z_index = 1
+
+[node name="Light10" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -594, 26 )
+z_index = 1
+
+[node name="Light12" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -926, 26 )
+
+[node name="Light13" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -789, 26 )
+
+[node name="Light14" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -854, 26 )
+
+[node name="Light2" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -67, 26 )
+z_index = 1
+
+[node name="Light3" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 93, 26 )
+z_index = 1
+
+[node name="Light4" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 253, 26 )
+z_index = 1
+
+[node name="Light5" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 413, 26 )
+z_index = 1
+
+[node name="Light6" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 573, 26 )
+z_index = 1
+
+[node name="Light7" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 733, 26 )
+z_index = 1
+
+[node name="Light8" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 893, 26 )
+z_index = 1
+
+[node name="Light11" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -2181, 26 )
+z_index = 1
+
+[node name="Light15" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -2341, 26 )
+z_index = 1
+
+[node name="Light16" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -2528, 26 )
+z_index = 1
+
+[node name="Light17" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -2860, 26 )
+
+[node name="Light18" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -2723, 26 )
+
+[node name="Light19" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -2788, 26 )
+
+[node name="Light20" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -2001, 26 )
+z_index = 1
+
+[node name="Light21" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -1841, 26 )
+z_index = 1
+
+[node name="Light22" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -1681, 26 )
+z_index = 1
+
+[node name="Light23" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -1521, 26 )
+z_index = 1
+
+[node name="Light24" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -1361, 26 )
+z_index = 1
+
+[node name="Light27" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 2666, 26 )
+z_index = 1
+
+[node name="Light28" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 2479, 26 )
+z_index = 1
+
+[node name="Light29" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 2147, 26 )
+
+[node name="Light30" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 2284, 26 )
+
+[node name="Light31" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 2219, 26 )
+
+[node name="Light32" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 3006, 26 )
+z_index = 1
+
+[node name="Light40" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 3166, 26 )
+z_index = 1
+
+[node name="Light41" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 3326, 26 )
+z_index = 1
+
+[node name="Light42" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 3486, 26 )
+z_index = 1
+
+[node name="Light43" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 3646, 26 )
+z_index = 1
+
+[node name="Light44" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 3806, 26 )
+z_index = 1
+
+[node name="Light45" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 3966, 26 )
+z_index = 1
+
+[node name="Light46" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 1063, 26 )
+z_index = 1
+
+[node name="Light47" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 1223, 26 )
+z_index = 1
+
+[node name="Light48" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 1383, 26 )
+z_index = 1
+
+[node name="Light49" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 1543, 26 )
+z_index = 1
+
+[node name="Light50" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 1703, 26 )
+z_index = 1
+
+[node name="Light51" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 1863, 26 )
+z_index = 1
+
+[node name="Light52" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( 2023, 26 )
+z_index = 1
+
+[node name="Light25" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -1201, 26 )
+z_index = 1
+
+[node name="Light26" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -1041, 26 )
+z_index = 1
+
+[node name="Light33" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -3944, 26 )
+z_index = 1
+
+[node name="Light34" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -3784, 26 )
+z_index = 1
+
+[node name="Light35" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -3624, 26 )
+z_index = 1
+
+[node name="Light36" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -3464, 26 )
+z_index = 1
+
+[node name="Light37" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -3304, 26 )
+z_index = 1
+
+[node name="Light38" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -3144, 26 )
+z_index = 1
+
+[node name="Light39" parent="Lights" instance=ExtResource( 7 )]
+position = Vector2( -2984, 26 )
+z_index = 1
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 0, 24 )
+tile_set = SubResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 9
+format = 1
+tile_data = PoolIntArray( 261889, 0, 0, 261890, 0, 0, 261891, 0, 0, 261892, 0, 0, 261893, 0, 0, 261894, 0, 0, 261895, 0, 0, 261896, 0, 0, 261897, 0, 0, 261898, 0, 0, 261899, 0, 0, 261900, 0, 0, 261901, 0, 0, 261902, 0, 0, 261903, 0, 0, 261904, 0, 0, 261905, 0, 0, 261906, 0, 0, 261907, 0, 0, 261908, 0, 0, 261909, 0, 0, 261910, 0, 0, 261911, 0, 0, 261912, 0, 0, 261913, 0, 0, 261914, 0, 0, 261915, 0, 0, 261916, 0, 0, 261917, 0, 0, 261918, 0, 0, 261919, 0, 0, 261920, 0, 0, 261921, 0, 0, 261922, 0, 0, 261923, 0, 0, 261924, 0, 0, 261925, 0, 0, 261926, 0, 0, 261927, 0, 0, 261928, 0, 0, 261929, 0, 0, 261930, 0, 0, 261931, 0, 0, 261932, 0, 0, 261933, 0, 0, 261934, 0, 0, 261935, 0, 0, 261936, 0, 0, 261937, 0, 0, 261938, 0, 0, 261939, 0, 0, 261940, 0, 0, 261941, 0, 0, 261942, 0, 0, 261943, 0, 0, 261944, 0, 0, 261945, 0, 0, 261946, 0, 0, 261947, 0, 0, 261948, 0, 0, 261949, 0, 0, 261950, 0, 0, 261951, 0, 0, 261952, 0, 0, 261953, 0, 0, 261954, 0, 0, 261955, 0, 0, 261956, 0, 0, 261957, 0, 0, 261958, 0, 0, 261959, 0, 0, 261960, 0, 0, 261961, 0, 0, 261962, 0, 0, 261963, 0, 0, 261964, 0, 0, 261965, 0, 0, 261966, 0, 0, 261967, 0, 0, 261968, 0, 0, 261969, 0, 0, 261970, 0, 0, 261971, 0, 0, 261972, 0, 0, 261973, 0, 0, 261974, 0, 0, 261975, 0, 0, 261976, 0, 0, 261977, 0, 0, 261978, 0, 0, 261979, 0, 0, 261980, 0, 0, 261981, 0, 0, 261982, 0, 0, 261983, 0, 0, 261984, 0, 0, 261985, 0, 0, 261986, 0, 0, 261987, 0, 0, 261988, 0, 0, 261989, 0, 0, 261990, 0, 0, 261991, 0, 0, 261992, 0, 0, 261993, 0, 0, 261994, 0, 0, 261995, 0, 0, 261996, 0, 0, 261997, 0, 0, 261998, 0, 0, 261999, 0, 0, 262000, 0, 0, 262001, 0, 0, 262002, 0, 0, 262003, 0, 0, 262004, 0, 0, 262005, 0, 0, 262006, 0, 0, 262007, 0, 0, 262008, 0, 0, 262009, 0, 0, 262010, 0, 0, 262011, 0, 0, 262012, 0, 0, 262013, 0, 0, 262014, 0, 0, 262015, 0, 0, 262017, 0, 0, 262018, 0, 0, 262019, 0, 0, 262020, 0, 0, 262021, 0, 0, 262022, 0, 0, 262023, 0, 0, 262024, 0, 0, 262025, 0, 0, 262026, 0, 0, 262027, 0, 0, 262028, 0, 0, 262029, 0, 0, 262030, 0, 0, 262031, 0, 0, 262032, 0, 0, 262033, 0, 0, 262034, 0, 0, 262035, 0, 0, 262036, 0, 0, 262037, 0, 0, 262038, 0, 0, 262039, 0, 0, 262040, 0, 0, 262041, 0, 0, 262042, 0, 0, 262043, 0, 0, 262044, 0, 0, 262045, 0, 0, 262046, 0, 0, 262047, 0, 0, 262048, 0, 0, 262049, 0, 0, 262050, 0, 0, 262051, 0, 0, 262052, 0, 0, 262053, 0, 0, 262054, 0, 0, 262055, 0, 0, 262056, 0, 0, 262057, 0, 0, 262058, 0, 0, 262059, 0, 0, 262060, 0, 0, 262061, 0, 0, 262062, 0, 0, 262063, 0, 0, 262064, 0, 0, 262065, 0, 0, 262066, 0, 0, 262067, 0, 0, 262068, 0, 0, 262069, 0, 0, 262070, 0, 0, 262071, 0, 0, 262072, 0, 0, 262073, 0, 0, 262074, 0, 0, 262075, 0, 0, 262076, 0, 0, 262077, 0, 0, 262078, 0, 0, 262079, 0, 0, 262080, 0, 0, 262081, 0, 0, 262082, 0, 0, 262083, 0, 0, 262084, 0, 0, 262085, 0, 0, 262086, 0, 0, 262087, 0, 0, 262088, 0, 0, 262089, 0, 0, 262090, 0, 0, 262091, 0, 0, 262092, 0, 0, 262093, 0, 0, 262094, 0, 0, 262095, 0, 0, 262096, 0, 0, 262097, 0, 0, 262098, 0, 0, 262099, 0, 0, 262100, 0, 0, 262101, 0, 0, 262102, 0, 0, 262103, 0, 0, 262104, 0, 0, 262105, 0, 0, 262106, 0, 0, 262107, 0, 0, 262108, 0, 0, 262109, 0, 0, 262110, 0, 0, 262111, 0, 0, 262112, 0, 0, 262113, 0, 0, 262114, 0, 0, 262115, 0, 0, 262116, 0, 0, 262117, 0, 0, 262118, 0, 0, 262119, 0, 0, 262120, 0, 0, 262121, 0, 0, 262122, 0, 0, 262123, 0, 0, 262124, 0, 0, 262125, 0, 0, 262126, 0, 0, 262127, 0, 0, 262128, 0, 0, 262129, 0, 0, 262130, 0, 0, 262131, 0, 0, 262132, 0, 0, 262133, 0, 0, 262134, 0, 0, 262135, 0, 0, 262136, 0, 0, 262137, 0, 0, 262138, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 0, 196629, 0, 0, 196630, 0, 0, 196631, 0, 0, 196632, 0, 0, 196633, 0, 0, 196634, 0, 0, 196635, 0, 0, 196636, 0, 0, 196637, 0, 0, 196638, 0, 0, 196639, 0, 0, 196640, 0, 0, 196641, 0, 0, 196642, 0, 0, 196643, 0, 0, 196644, 0, 0, 196645, 0, 0, 196646, 0, 0, 196647, 0, 0, 196648, 0, 0, 196649, 0, 0, 196650, 0, 0, 196651, 0, 0, 196652, 0, 0, 196653, 0, 0, 196654, 0, 0, 196655, 0, 0, 196656, 0, 0, 196657, 0, 0, 196658, 0, 0, 196659, 0, 0, 196660, 0, 0, 196661, 0, 0, 196662, 0, 0, 196663, 0, 0, 196664, 0, 0, 196665, 0, 0, 196666, 0, 0, 196667, 0, 0, 196668, 0, 0, 196669, 0, 0, 196670, 0, 0, 196671, 0, 0, 196672, 0, 0, 196673, 0, 0, 196674, 0, 0, 196675, 0, 0, 196676, 0, 0, 196677, 0, 0, 196678, 0, 0, 196679, 0, 0, 196680, 0, 0, 196681, 0, 0, 196682, 0, 0, 196683, 0, 0, 196684, 0, 0, 196685, 0, 0, 196686, 0, 0, 196687, 0, 0, 196688, 0, 0, 196689, 0, 0, 196690, 0, 0, 196691, 0, 0, 196692, 0, 0, 196693, 0, 0, 196694, 0, 0, 196695, 0, 0, 196696, 0, 0, 196697, 0, 0, 196698, 0, 0, 196699, 0, 0, 196700, 0, 0, 196701, 0, 0, 196702, 0, 0, 196703, 0, 0, 196704, 0, 0, 196705, 0, 0, 196706, 0, 0, 196707, 0, 0, 196708, 0, 0, 196709, 0, 0, 196710, 0, 0, 196711, 0, 0, 196712, 0, 0, 196713, 0, 0, 196714, 0, 0, 196715, 0, 0, 196716, 0, 0, 196717, 0, 0, 196718, 0, 0, 196719, 0, 0, 196720, 0, 0, 196721, 0, 0, 196722, 0, 0, 196723, 0, 0, 196724, 0, 0, 196725, 0, 0, 196726, 0, 0, 196727, 0, 0, 196728, 0, 0, 196729, 0, 0, 196730, 0, 0, 196731, 0, 0, 196732, 0, 0, 196733, 0, 0, 196734, 0, 0, 196735, 0, 0, 196736, 0, 0, 196737, 0, 0, 196738, 0, 0, 196739, 0, 0, 196740, 0, 0, 196741, 0, 0, 196742, 0, 0, 196743, 0, 0, 196744, 0, 0, 196745, 0, 0, 196746, 0, 0, 196747, 0, 0, 196748, 0, 0, 196749, 0, 0, 196750, 0, 0, 196751, 0, 0, 196752, 0, 0, 196753, 0, 0, 196754, 0, 0, 196755, 0, 0, 196756, 0, 0, 196757, 0, 0, 196758, 0, 0, 196759, 0, 0, 196760, 0, 0, 196761, 0, 0, 196762, 0, 0, 196763, 0, 0, 196764, 0, 0, 196765, 0, 0, 196766, 0, 0, 196767, 0, 0, 196768, 0, 0, 196769, 0, 0, 196770, 0, 0, 196771, 0, 0, 196772, 0, 0, 196773, 0, 0, 196774, 0, 0, 196775, 0, 0, 196776, 0, 0, 196777, 0, 0, 196778, 0, 0, 196779, 0, 0, 196780, 0, 0, 196781, 0, 0, 196782, 0, 0, 196783, 0, 0, 196784, 0, 0, 196785, 0, 0, 196786, 0, 0, 196787, 0, 0, 196788, 0, 0, 196789, 0, 0, 196790, 0, 0, 196791, 0, 0, 196792, 0, 0, 196793, 0, 0, 196794, 0, 0, 196795, 0, 0, 196796, 0, 0, 196797, 0, 0, 196798, 0, 0, 196799, 0, 0, 196800, 0, 0, 196801, 0, 0, 196802, 0, 0, 196803, 0, 0, 196804, 0, 0, 196805, 0, 0, 196806, 0, 0, 196807, 0, 0, 196808, 0, 0, 196809, 0, 0, 196810, 0, 0, 196811, 0, 0, 196812, 0, 0, 196813, 0, 0, 196814, 0, 0, 196815, 0, 0, 196816, 0, 0, 196817, 0, 0, 196818, 0, 0, 196819, 0, 0, 196820, 0, 0, 196821, 0, 0, 196822, 0, 0, 196823, 0, 0, 196824, 0, 0, 196825, 0, 0, 196826, 0, 0, 196827, 0, 0, 196828, 0, 0, 196829, 0, 0, 196830, 0, 0, 196831, 0, 0, 196832, 0, 0, 196833, 0, 0, 196834, 0, 0, 196835, 0, 0, 196836, 0, 0, 196837, 0, 0, 196838, 0, 0, 196839, 0, 0, 196840, 0, 0, 196841, 0, 0, 196842, 0, 0, 196843, 0, 0, 196844, 0, 0, 196845, 0, 0, 196846, 0, 0, 196847, 0, 0, 196848, 0, 0, 196849, 0, 0, 196850, 0, 0, 196851, 0, 0, 196852, 0, 0, 196853, 0, 0, 196854, 0, 0, 196855, 0, 0, 196856, 0, 0, 196857, 0, 0, 196858, 0, 0, 196859, 0, 0, 196860, 0, 0, 196861, 0, 0, 196862, 0, 0 )
+
+[node name="ZombieSpawner" type="Node" parent="."]
+script = ExtResource( 5 )
+
+[node name="Wheel" parent="." instance=ExtResource( 2 )]
+z_index = 2
+
+[node name="PopupLayer" type="CanvasLayer" parent="."]
+layer = -1
+follow_viewport_enable = true
+script = ExtResource( 8 )
+
+[node name="Shop" parent="." instance=ExtResource( 3 )]
+position = Vector2( -202, 16 )

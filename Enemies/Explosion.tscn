@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Enemies/explosion.wav" type="AudioStream" id=1]
+[ext_resource path="res://Enemies/Explosion.cs" type="Script" id=2]
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0.690608, 0.906077, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.153846, 1, 1, 1, 0 )
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 2.0
+
+[node name="Explosion" type="Area2D"]
+z_index = 1
+script = ExtResource( 2 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 96
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.7
+radial_accel = -30.0
+angle = 180.0
+angle_random = 1.0
+scale_amount = 15.0
+scale_amount_random = 0.7
+color = Color( 0.882353, 0.352941, 0.0588235, 1 )
+color_ramp = SubResource( 2 )
+hue_variation = -0.1
+hue_variation_random = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )

@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Level/PostProcess.shader" type="Shader" id=1]
+[ext_resource path="res://Level/Arena.tscn" type="PackedScene" id=2]
+[ext_resource path="res://default_env.tres" type="Environment" id=3]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Level/PostProcess.cs" type="Script" id=5]
+[ext_resource path="res://Global/music.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Global/GM.tscn" type="PackedScene" id=10]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/falloff = 0.175
+shader_param/amount = 0.55
+shader_param/strength = 0.6
+shader_param/offset = Vector2( 0, 0 )
+shader_param/percent = null
+
+[node name="Level" type="Node2D"]
+
+[node name="GM" parent="." instance=ExtResource( 10 )]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 3 )
+
+[node name="HUD" parent="WorldEnvironment" instance=ExtResource( 4 )]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="WorldEnvironment"]
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="WorldEnvironment/ViewportContainer"]
+size = Vector2( 512, 288 )
+size_override_stretch = true
+handle_input_locally = false
+usage = 0
+render_target_update_mode = 3
+
+[node name="Arena" parent="WorldEnvironment/ViewportContainer/Viewport" instance=ExtResource( 2 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
